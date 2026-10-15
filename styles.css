@@ -1,0 +1,46 @@
+#yt-copy-transcript {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  height: 40px;
+  margin: 0 0 0 8px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 20px;
+  background: var(--ytct-bg, rgba(128, 128, 128, 0.15));
+  color: var(--ytct-fg, inherit);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+#yt-copy-transcript:hover:not([data-state]) {
+  filter: brightness(0.92);
+}
+
+#yt-copy-transcript:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+#yt-copy-transcript:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+#yt-copy-transcript[data-state="success"] {
+  background: #137333;
+  color: #fff;
+}
+
+#yt-copy-transcript[data-state="error"] {
+  background: #c5221f;
+  color: #fff;
+}
