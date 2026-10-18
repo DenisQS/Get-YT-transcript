@@ -24,8 +24,3 @@ You need a recent version of Chrome.
 - **Clipboard blocked**: Chrome refused the copy. Click the button again.
 
 The button goes back to **Copy transcript** on its own after two seconds.
-
-## Contributors
-
-- Denis-Q.S. S. ([@DenisQS](https://github.com/DenisQS))
-- [Cursor](https://cursor.com)
