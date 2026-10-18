@@ -1,26 +1,31 @@
-# Copier la transcription d'une vidéo YouTube
+# Copy a YouTube video transcript
 
-Cette extension ajoute un bouton sur les pages de vidéos YouTube. Un clic copie le titre, le lien et la transcription (avec les minutages) dans le presse-papiers.
+This extension adds a button on YouTube video pages. One click copies the title, the link, and the transcript (with timestamps) to the clipboard.
 
-Le texte n'est envoyé nulle part : il reste sur votre ordinateur.
+The text is not sent anywhere: it stays on your computer.
 
-## L'installer dans Chrome
+## Install it in Chrome
 
-1. Téléchargez ce projet (bouton vert **Code**, puis **Download ZIP**) et décompressez le fichier ZIP.
-2. Ouvrez Chrome. Cliquez dans la barre d'adresse et entrez `chrome://extensions`, puis validez.
-3. En haut à droite, activez **Mode développeur** (en anglais : **Developer mode**).
-4. Cliquez sur **Charger l'extension non empaquetée** (en anglais : **Load unpacked**). Choisissez le dossier décompressé, celui qui contient le fichier `manifest.json`. Ne choisissez pas un fichier à l'intérieur du dossier.
-5. Ouvrez une vidéo YouTube. Le bouton **Copy transcript** apparaît à côté de J'aime et Partager (Like et Share). Cliquez dessus, puis collez le texte où vous voulez (Ctrl+V, ou Cmd+V sur Mac).
+1. Download this project (green **Code** button, then **Download ZIP**) and unzip the ZIP file.
+2. Open Chrome. Click the address bar, type `chrome://extensions`, and press Enter.
+3. At the top right, turn on **Developer mode**.
+4. Click **Load unpacked**. Choose the unzipped folder, the one that contains the file `manifest.json`. Do not choose a file inside the folder.
+5. Open a YouTube video. The **Copy transcript** button appears next to Like and Share. Click it, then paste the text wherever you want (Ctrl+V, or Cmd+V on a Mac).
 
-Si un onglet YouTube était déjà ouvert, rechargez-le après l'installation.
+If a YouTube tab was already open, reload it after installing.
 
-Il faut une version récente de Chrome.
+You need a recent version of Chrome.
 
-## Ce que le bouton peut afficher
+## What the button can show
 
-- **Copied!** : c'est bon, le texte est copié.
-- **No captions** : cette vidéo n'a pas de sous-titres.
-- **Couldn't load** : YouTube n'a pas renvoyé la transcription. Rechargez la page et réessayez.
-- **Clipboard blocked** : Chrome a refusé la copie. Cliquez à nouveau sur le bouton.
+- **Copied!**: it worked, the text is copied.
+- **No captions**: this video has no subtitles.
+- **Couldn't load**: YouTube did not send the transcript. Reload the page and try again.
+- **Clipboard blocked**: Chrome refused the copy. Click the button again.
 
-Le bouton revient tout seul à **Copy transcript** après deux secondes.
+The button goes back to **Copy transcript** on its own after two seconds.
+
+## Contributors
+
+- Denis-Q.S. S. ([@DenisQS](https://github.com/DenisQS))
+- [Cursor](https://cursor.com)

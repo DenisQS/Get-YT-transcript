@@ -3,6 +3,7 @@
   "name": "Copy YouTube Transcript",
   "version": "1.0.0",
   "description": "Adds a button on YouTube videos that copies the transcript to the clipboard.",
+  "author": "Denis-Q.S. S. and Cursor",
   "minimum_chrome_version": "111",
   "icons": {
     "16": "icons/icon16.png",
