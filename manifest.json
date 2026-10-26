@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Copy YouTube Transcript",
-  "version": "1.0.0",
-  "description": "Adds a button on YouTube videos that copies the transcript to the clipboard.",
+  "version": "1.1.0",
+  "description": "Adds a button on YouTube videos that copies the transcript to the clipboard. You can choose the caption language.",
   "author": "Denis-Q.S. S. and Cursor",
   "minimum_chrome_version": "111",
   "icons": {
