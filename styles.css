@@ -1,4 +1,15 @@
-#yt-copy-transcript {
+.yt-copy-transcript-wrap {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin: 0 0 0 8px;
+  vertical-align: middle;
+  --ytct-bg: rgba(128, 128, 128, 0.15);
+  --ytct-fg: inherit;
+}
+
+#yt-copy-transcript,
+#yt-copy-transcript-lang {
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -6,12 +17,10 @@
   box-sizing: border-box;
   flex: 0 0 auto;
   height: 40px;
-  margin: 0 0 0 8px;
-  padding: 0 16px;
+  margin: 0;
   border: 0;
-  border-radius: 20px;
-  background: var(--ytct-bg, rgba(128, 128, 128, 0.15));
-  color: var(--ytct-fg, inherit);
+  background: var(--ytct-bg);
+  color: var(--ytct-fg);
   font-family: Roboto, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -21,16 +30,48 @@
   user-select: none;
 }
 
-#yt-copy-transcript:hover:not([data-state]) {
+#yt-copy-transcript {
+  padding: 0 16px;
+  border-radius: 999px 0 0 999px;
+}
+
+#yt-copy-transcript-lang {
+  gap: 4px;
+  max-width: 220px;
+  padding: 0 10px 0 12px;
+  border-left: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 0 999px 999px 0;
+}
+
+#yt-copy-transcript-lang:not(:has(.yt-copy-transcript-lang-name:not(:empty))) {
+  width: 36px;
+  padding: 0;
+}
+
+.yt-copy-transcript-lang-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.yt-copy-transcript-lang-name:empty {
+  display: none;
+}
+
+#yt-copy-transcript:hover:not([data-state]),
+#yt-copy-transcript-lang:hover:not(:disabled) {
   filter: brightness(0.92);
 }
 
-#yt-copy-transcript:focus-visible {
+#yt-copy-transcript:focus-visible,
+#yt-copy-transcript-lang:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+  z-index: 1;
 }
 
-#yt-copy-transcript:disabled {
+#yt-copy-transcript:disabled,
+#yt-copy-transcript-lang:disabled {
   cursor: progress;
   opacity: 0.75;
 }
@@ -40,7 +81,103 @@
   color: #fff;
 }
 
+.yt-copy-transcript-wrap:has(#yt-copy-transcript[data-state="success"]) #yt-copy-transcript-lang {
+  background: #137333;
+  color: #fff;
+  border-left-color: rgba(255, 255, 255, 0.35);
+}
+
 #yt-copy-transcript[data-state="error"] {
   background: #c5221f;
   color: #fff;
+}
+
+.yt-copy-transcript-wrap:has(#yt-copy-transcript[data-state="error"]) #yt-copy-transcript-lang {
+  background: #c5221f;
+  color: #fff;
+  border-left-color: rgba(255, 255, 255, 0.35);
+}
+
+.yt-copy-transcript-menu {
+  position: fixed;
+  z-index: 10000;
+  box-sizing: border-box;
+  min-width: 220px;
+  max-width: min(320px, calc(100vw - 16px));
+  max-height: 320px;
+  margin: 0;
+  padding: 6px 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--yt-spec-10-percent-layer, rgba(128, 128, 128, 0.35));
+  border-radius: 12px;
+  background: var(--yt-spec-menu-background, #fff);
+  color: var(--yt-spec-text-primary, #0f0f0f);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.28);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+html[dark] .yt-copy-transcript-menu {
+  background: var(--yt-spec-menu-background, #282828);
+  color: var(--yt-spec-text-primary, #f1f1f1);
+}
+
+.yt-copy-transcript-menu[hidden] {
+  display: none;
+}
+
+.yt-copy-transcript-menu-heading {
+  margin: 4px 0 0;
+  padding: 8px 14px 4px;
+  border-top: 1px solid var(--yt-spec-10-percent-layer, rgba(128, 128, 128, 0.35));
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.yt-copy-transcript-menu-empty {
+  padding: 10px 14px;
+  opacity: 0.8;
+}
+
+#yt-copy-transcript-menu button.yt-copy-transcript-option {
+  appearance: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-transform: none;
+  cursor: pointer;
+}
+
+#yt-copy-transcript-menu button.yt-copy-transcript-option:hover,
+#yt-copy-transcript-menu button.yt-copy-transcript-option:focus-visible {
+  background: var(--yt-spec-10-percent-layer, rgba(128, 128, 128, 0.15));
+  outline: none;
+}
+
+.yt-copy-transcript-option-mark {
+  flex: 0 0 1em;
+  width: 1em;
+}
+
+.yt-copy-transcript-option-label {
+  flex: 1 1 auto;
+}
+
+#yt-copy-transcript-menu button.yt-copy-transcript-option.is-selected {
+  font-weight: 500;
 }
